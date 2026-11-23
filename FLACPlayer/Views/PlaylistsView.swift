@@ -68,13 +68,7 @@ struct PlaylistDetailsView: View {
                     player.play(track, within: songs)
                     onPlay()
                 } label: {
-                    HStack(spacing: 12) {
-                        CoverView(library: library, track: track)
-                        VStack(alignment: .leading) {
-                            Text(track.title).font(.body.weight(.medium))
-                            Text(track.artist).font(.caption).foregroundStyle(.secondary)
-                        }
-                    }
+                    SongRowView(library: library, player: player, track: track)
                 }
                 .buttonStyle(.plain)
                 .swipeActions {

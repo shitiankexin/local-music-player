@@ -13,6 +13,12 @@ final class FLACAudioEngine {
     private let queue = DispatchQueue(label: "localflac.audio", qos: .userInitiated)
     private let engine = AVAudioEngine()
     private let node = AVAudioPlayerNode()
+    // The graph is attached once. Realtime on/off uses bypass instead of
+    // tearing down the graph (which would interrupt playback/lyrics timing).
+    private let equalizer = AVAudioUnitEQ(numberOfBands: 12)
+    private let reverb = AVAudioUnitReverb()
+    private var effects = AudioEffectsSettings()
+    private var appliedReverbSpace: AudioReverbSpace?
     private var decoder: FLACDecoder?
     private var sampleRate: Double = 44_100
     private var baseSample: Int64 = 0
@@ -29,6 +35,24 @@ final class FLACAudioEngine {
 
     init() {
         engine.attach(node)
+        engine.attach(equalizer)
+        engine.attach(reverb)
+        for index in AudioEffectsSettings.frequencies.indices {
+            let band = equalizer.bands[index]
+            band.filterType = .parametric
+            band.frequency = AudioEffectsSettings.frequencies[index]
+            band.bandwidth = 1.0
+            band.gain = 0
+        }
+        let bassShelf = equalizer.bands[10]
+        bassShelf.filterType = .lowShelf
+        bassShelf.frequency = 100
+        bassShelf.gain = 0
+        let trebleShelf = equalizer.bands[11]
+        trebleShelf.filterType = .highShelf
+        trebleShelf.frequency = 8_000
+        trebleShelf.gain = 0
+        applyEffectsOnAudioQueue(effects)
         let nc = NotificationCenter.default
         observers.append(nc.addObserver(forName: AVAudioSession.routeChangeNotification,
                                         object: nil, queue: nil) { [weak self] note in
@@ -122,8 +146,7 @@ final class FLACAudioEngine {
                 self.decoder = decoder
                 self.sampleRate = decoder.format.sampleRate
                 self.totalSamples = decoder.details.totalSamples
-                self.engine.connect(self.node, to: self.engine.mainMixerNode,
-                                    format: decoder.format)
+                self.connectEffectsGraph(format: decoder.format)
                 self.node.volume = 1.0
                 self.engine.mainMixerNode.outputVolume = 1.0
                 try self.engine.start()
@@ -135,6 +158,47 @@ final class FLACAudioEngine {
                 self.reportFailure("无法开始播放：\(error.localizedDescription)")
             }
         }
+    }
+
+    /// Apply settings while playback runs. Called only through the audio queue,
+    /// never from a render or AVAudioPlayerNode completion callback.
+    func updateEffects(_ requested: AudioEffectsSettings) {
+        queue.async {
+            self.effects = requested.sanitized()
+            self.applyEffectsOnAudioQueue(self.effects)
+        }
+    }
+
+    private func connectEffectsGraph(format: AVAudioFormat) {
+        engine.connect(node, to: equalizer, format: format)
+        engine.connect(equalizer, to: reverb, format: format)
+        engine.connect(reverb, to: engine.mainMixerNode, format: format)
+    }
+
+    private func applyEffectsOnAudioQueue(_ settings: AudioEffectsSettings) {
+        // Complete bypass by default. Neither the file nor decoder is modified.
+        for index in AudioEffectsSettings.frequencies.indices {
+            equalizer.bands[index].gain = settings.bands[index]
+        }
+        equalizer.bands[10].gain = settings.bassDB
+        equalizer.bands[11].gain = settings.trebleDB
+        equalizer.globalGain = settings.enabled ? settings.effectivePreampDB : 0
+        // Loading a factory preset repeatedly during slider drags could
+        // glitch the audio. Reload only when the selected room changes.
+        if appliedReverbSpace != settings.reverbSpace {
+            switch settings.reverbSpace {
+            case .smallRoom: reverb.loadFactoryPreset(.smallRoom)
+            case .mediumRoom: reverb.loadFactoryPreset(.mediumRoom)
+            case .mediumHall: reverb.loadFactoryPreset(.mediumHall)
+            case .largeHall: reverb.loadFactoryPreset(.largeHall)
+            }
+            appliedReverbSpace = settings.reverbSpace
+        }
+        reverb.wetDryMix = settings.enabled && settings.reverbEnabled
+            ? settings.reverbMix : 0
+        node.pan = settings.enabled ? settings.balance : 0
+        equalizer.bypass = !settings.enabled
+        reverb.bypass = !(settings.enabled && settings.reverbEnabled)
     }
 
     func resume() {
@@ -270,7 +334,7 @@ final class FLACAudioEngine {
             try decoder.seek(sample: target)
             baseSample = Int64(target)
             frozenSample = desiredPlaying ? nil : Int64(target)
-            engine.connect(node, to: engine.mainMixerNode, format: decoder.format)
+            connectEffectsGraph(format: decoder.format)
             try engine.start()
             fillBuffers()
             if desiredPlaying { node.play() }

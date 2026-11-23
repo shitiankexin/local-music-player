@@ -182,6 +182,7 @@ final class PlayerStore: ObservableObject {
     @Published private(set) var lyricOffset: TimeInterval = 0
     @Published private(set) var actualOutputSampleRate: Double = 0
     @Published private(set) var playbackMode: PlaybackMode
+    @Published private(set) var audioEffects: AudioEffectsSettings
     @Published var errorMessage: String?
 
     private let library: MusicLibrary
@@ -192,6 +193,7 @@ final class PlayerStore: ObservableObject {
     private var artworkTrackID: UUID?
     private var nowPlayingArtwork: MPMediaItemArtwork?
     private static let modeKey = "localflac.playbackMode.v4"
+    private static let effectsKey = "localflac.audioEffects.v6"
     private static let sessionKey = "localflac.lastSession.v5"
     private static let queueKey = "localflac.lastQueue.v5"
     private var needsAudioPreparation = false
@@ -204,6 +206,12 @@ final class PlayerStore: ObservableObject {
         let mode = saved.flatMap(PlaybackMode.init(rawValue:)) ?? .sequential
         self.playbackMode = mode
         self.order = PlaybackQueueOrder(mode: mode)
+        let effectsData = UserDefaults.standard.data(forKey: Self.effectsKey)
+        let restoredEffects = effectsData.flatMap {
+            try? JSONDecoder().decode(AudioEffectsSettings.self, from: $0)
+        }
+        self.audioEffects = (restoredEffects ?? AudioEffectsSettings()).sanitized()
+        audio.updateEffects(audioEffects)
 
         audio.onFinished = { [weak self] in self?.advance(automatically: true) }
         audio.onFailure = { [weak self] message in
@@ -334,6 +342,33 @@ final class PlayerStore: ObservableObject {
         artworkTrackID = nil
         nowPlayingArtwork = nil
         updateNowPlaying()
+    }
+
+    // MARK: - Equalizer / effect preferences (saved independently of playback)
+    func modifyAudioEffects(_ update: (inout AudioEffectsSettings) -> Void) {
+        var value = audioEffects
+        update(&value)
+        value = value.sanitized()
+        audioEffects = value
+        if let bytes = try? JSONEncoder().encode(value) {
+            UserDefaults.standard.set(bytes, forKey: Self.effectsKey)
+        }
+        audio.updateEffects(value)
+    }
+
+    func chooseEQPreset(_ preset: AudioEQPreset) {
+        modifyAudioEffects {
+            $0.preset = preset
+            if preset != .custom { $0.bands = preset.gains }
+        }
+    }
+
+    func changeEQBand(at index: Int, gain: Float) {
+        guard AudioEffectsSettings.frequencies.indices.contains(index) else { return }
+        modifyAudioEffects {
+            $0.bands[index] = gain
+            $0.preset = .custom
+        }
     }
 
     func cyclePlaybackMode() {

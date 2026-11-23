@@ -59,6 +59,17 @@ struct LibraryManagerView: View {
                 }
                 .disabled(library.isWorking)
 
+                Section("播放设置") {
+                    NavigationLink {
+                        AudioEffectsView(player: player)
+                    } label: {
+                        Label(player.audioEffects.enabled ? "音效与均衡器（已开启）" : "音效与均衡器（原音）",
+                              systemImage: "slider.horizontal.3")
+                    }
+                    Text("默认原音播放；也可以在全屏播放页打开音效设置。")
+                        .font(.caption).foregroundStyle(.secondary)
+                }
+
                 Section("存储空间统计") {
                     HStack { Text("已索引歌曲"); Spacer(); Text("\(library.tracks.count) 首") }
                     HStack { Text("FLAC 音频"); Spacer(); Text(formatBytes(library.storage.audioBytes)) }

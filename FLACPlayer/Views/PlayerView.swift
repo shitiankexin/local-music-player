@@ -17,6 +17,7 @@ struct PlayerView: View {
     @State private var page: PlayerPage = .cover
     @State private var scrubbing: Double?
     @State private var showPhotoPicker = false
+    @State private var showEffects = false
     @State private var showCoverFileImporter = false
     @State private var pickedPhoto: PhotosPickerItem?
     @State private var artworkTarget: MusicTrack?
@@ -71,6 +72,16 @@ struct PlayerView: View {
             }
         }
         .tint(.indigo)
+        .sheet(isPresented: $showEffects) {
+            NavigationStack {
+                AudioEffectsView(player: player)
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("完成") { showEffects = false }
+                        }
+                    }
+            }
+        }
         .onChange(of: player.current?.id) { _, _ in scrubbing = nil }
         .photosPicker(isPresented: $showPhotoPicker, selection: $pickedPhoto, matching: .images)
         .onChange(of: pickedPhoto) { _, selection in
@@ -276,9 +287,16 @@ struct PlayerView: View {
                 .buttonStyle(.plain)
                 .accessibilityLabel("当前为\(player.playbackMode.title)，点击切换播放模式")
                 Spacer()
-                Text("点击切换播放模式")
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
+                Button { showEffects = true } label: {
+                    Label(player.audioEffects.enabled ? "音效已开" : "音效", systemImage: "slider.horizontal.3")
+                        .font(.subheadline.weight(.medium))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(Color.indigo.opacity(player.audioEffects.enabled ? 0.17 : 0.08),
+                                    in: Capsule())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("打开均衡器和音效设置")
             }
 
             HStack(spacing: 4) {
@@ -310,6 +328,149 @@ struct PlayerView: View {
                 }
                 .foregroundStyle(.secondary)
             }
+        }
+    }
+}
+
+
+// MARK: - 10-band EQ / real-time audio effects
+// Accessible from the now-playing sheet and from 管理 → 音效与均衡器.
+struct AudioEffectsView: View {
+    @ObservedObject var player: PlayerStore
+
+    private let frequencyLabels = ["31", "62", "125", "250", "500", "1k", "2k", "4k", "8k", "16k"]
+    private var enabled: Bool { player.audioEffects.enabled }
+
+    var body: some View {
+        Form {
+            Section {
+                Toggle("启用音效", isOn: Binding(
+                    get: { player.audioEffects.enabled },
+                    set: { value in player.modifyAudioEffects { $0.enabled = value } }
+                ))
+                Label(enabled ? "正在使用自定义音效" : "原音模式（默认）",
+                      systemImage: enabled ? "waveform" : "checkmark.shield")
+                    .font(.subheadline).foregroundStyle(.secondary)
+                Text("关闭后旁路 EQ 和混响，不修改原始 FLAC 文件；系统音频输出仍可能重采样。")
+                    .font(.caption).foregroundStyle(.secondary)
+            } header: { Text("音效总开关") }
+
+            Section {
+                Picker("均衡器预设", selection: Binding(
+                    get: { player.audioEffects.preset },
+                    set: { player.chooseEQPreset($0) }
+                )) {
+                    ForEach(AudioEQPreset.allCases, id: \.self) { preset in
+                        Text(preset.label).tag(preset)
+                    }
+                }
+                ForEach(AudioEffectsSettings.frequencies.indices, id: \.self) { i in
+                    HStack(spacing: 10) {
+                        Text(frequencyLabels[i])
+                            .font(.caption.monospacedDigit())
+                            .frame(width: 35, alignment: .leading)
+                        Slider(value: Binding(
+                            get: { Double(player.audioEffects.bands[i]) },
+                            set: { player.changeEQBand(at: i, gain: Float($0)) }
+                        ), in: -12...12, step: 0.5)
+                            .accessibilityLabel("\(frequencyLabels[i]) 赫兹")
+                        Text("\(player.audioEffects.bands[i], specifier: "%+.1f")")
+                            .font(.caption.monospacedDigit())
+                            .foregroundStyle(.secondary)
+                            .frame(width: 45, alignment: .trailing)
+                    }
+                }
+                Button("将十段 EQ 重置为平直") { player.chooseEQPreset(.flat) }
+            } header: { Text("10 段均衡器 · dB") }
+                footer: { Text("手动调整任一频段会切换为“自定义”预设；这里的数值只影响播放输出。") }
+                .disabled(!enabled)
+
+            Section("低音 / 高音") {
+                adjustment("低音增强", value: player.audioEffects.bassDB, range: -12...12) { new in
+                    player.modifyAudioEffects { $0.bassDB = new }
+                }
+                adjustment("高音增强", value: player.audioEffects.trebleDB, range: -12...12) { new in
+                    player.modifyAudioEffects { $0.trebleDB = new }
+                }
+            }
+            .disabled(!enabled)
+
+            Section {
+                adjustment("前级增益", value: player.audioEffects.preampDB, range: -12...0) { new in
+                    player.modifyAudioEffects { $0.preampDB = new }
+                }
+                HStack {
+                    Text("实际输出前级")
+                    Spacer()
+                    Text("\(player.audioEffects.effectivePreampDB, specifier: "%.1f") dB")
+                        .monospacedDigit().foregroundStyle(.secondary)
+                }
+                Text("当任何频段提升时，自动降低前级增益以预留余量。它不能取代峰值限制器，仍需留意破音。")
+                    .font(.caption).foregroundStyle(.secondary)
+            } header: { Text("防削波余量") }
+                .disabled(!enabled)
+
+            Section("混响") {
+                Toggle("启用混响", isOn: Binding(
+                    get: { player.audioEffects.reverbEnabled },
+                    set: { new in player.modifyAudioEffects { $0.reverbEnabled = new } }
+                ))
+                Picker("场景", selection: Binding(
+                    get: { player.audioEffects.reverbSpace },
+                    set: { new in player.modifyAudioEffects { $0.reverbSpace = new } }
+                )) {
+                    ForEach(AudioReverbSpace.allCases, id: \.self) { space in
+                        Text(space.label).tag(space)
+                    }
+                }
+                .disabled(!player.audioEffects.reverbEnabled)
+                HStack {
+                    Text("混响强度")
+                    Slider(value: Binding(
+                        get: { Double(player.audioEffects.reverbMix) },
+                        set: { new in player.modifyAudioEffects { $0.reverbMix = Float(new) } }
+                    ), in: 0...40, step: 1)
+                    Text("\(Int(player.audioEffects.reverbMix))%")
+                        .font(.caption.monospacedDigit()).frame(width: 44, alignment: .trailing)
+                }
+                .disabled(!player.audioEffects.reverbEnabled)
+            }
+            .disabled(!enabled)
+
+            Section("左右声道") {
+                HStack {
+                    Text("左")
+                    Slider(value: Binding(
+                        get: { Double(player.audioEffects.balance) },
+                        set: { new in player.modifyAudioEffects { $0.balance = Float(new) } }
+                    ), in: -1...1, step: 0.1)
+                    Text("右")
+                }
+                Button("恢复居中") { player.modifyAudioEffects { $0.balance = 0 } }
+            }
+            .disabled(!enabled)
+
+            Section {
+                Button("恢复原音默认设置") {
+                    player.modifyAudioEffects { $0 = AudioEffectsSettings() }
+                }
+                Text("所有音效设置会保存在本机，下次打开 App 自动恢复；原音模式默认不开启任何 DSP 效果。")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
+        }
+        .navigationTitle("音效与均衡器")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private func adjustment(_ title: String, value: Float,
+                            range: ClosedRange<Double>, onChange: @escaping (Float) -> Void) -> some View {
+        HStack(spacing: 8) {
+            Text(title).frame(width: 80, alignment: .leading)
+            Slider(value: Binding(get: { Double(value) }, set: { onChange(Float($0)) }),
+                   in: range, step: 0.5)
+            Text("\(value, specifier: "%+.1f")")
+                .font(.caption.monospacedDigit())
+                .frame(width: 44, alignment: .trailing)
         }
     }
 }
