@@ -1,0 +1,22 @@
+{
+  "name": "洪达快播",
+  "short_name": "洪达快播",
+  "description": "本地 FLAC 无损播放与 LRC 歌词",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

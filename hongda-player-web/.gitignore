@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+.venv/
+.tools-venv/
+*.log
+.idea/
+.vscode/
+.cursor/

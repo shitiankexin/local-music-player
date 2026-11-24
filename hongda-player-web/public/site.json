@@ -1,0 +1,50 @@
+{
+ "name": "洪达快播",
+ "tagline": "本地无损播放 · FLAC + LRC",
+ "seoTitle": "洪达快播",
+ "alternateName": [
+  "洪达快播",
+  "Hongda Player",
+  "Hongda Kuaibo"
+ ],
+ "origin": "https://hongdakuaibo.com",
+ "operator": "诗天可信",
+ "contactEmail": "support@heanbian.com",
+ "iosBundleId": "com.shitiankexin.hongdakuaibo",
+ "iosRepo": "https://github.com/shitiankexin/local-music-player/tree/main/hongda-player-ios-app",
+ "webRepo": "https://github.com/shitiankexin/local-music-player/tree/main/hongda-player-web",
+ "appStoreUrl": "",
+ "pages": [
+  {
+   "path": "/",
+   "title": "洪达快播",
+   "label": "首页",
+   "blurb": "本地 FLAC 无损播放与 LRC 歌词"
+  },
+  {
+   "path": "/download.html",
+   "title": "下载 · 洪达快播",
+   "label": "下载",
+   "blurb": "iOS 官方获取入口"
+  },
+  {
+   "path": "/about.html",
+   "title": "关于 · 洪达快播",
+   "label": "关于",
+   "blurb": "产品定位与联系方式"
+  },
+  {
+   "path": "/privacy.html",
+   "title": "隐私政策 · 洪达快播",
+   "label": "隐私政策",
+   "blurb": "本机存储、权限与联系方式"
+  },
+  {
+   "path": "/terms.html",
+   "title": "用户协议 · 洪达快播",
+   "label": "用户协议",
+   "blurb": "服务说明与免责声明"
+  }
+ ],
+ "monorepo": "https://github.com/shitiankexin/local-music-player"
+}

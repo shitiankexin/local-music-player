@@ -1,0 +1,68 @@
+# Xcode user / machine state
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+*.xcuserdatad/
+
+# Build / Derived
+build/
+DerivedData/
+.build/
+*.ipa
+*.xcarchive
+*.dSYM.zip
+*.dSYM
+/store/release/
+
+# Signing (local secrets — never commit)
+ExportOptions.plist
+signing.properties
+/signing/material/
+!/signing/README.md
+*.p12
+*.mobileprovision
+*.cer
+AuthKey_*.p8
+
+# Swift Package Manager
+.swiftpm/
+Packages/
+Package.resolved
+
+# CocoaPods / Carthage (if added later)
+Pods/
+Carthage/Build/
+
+# IDE / playground / editor
+*.playground
+timeline.xctimeline
+playground.xcworkspace
+.idea/
+.vscode/
+.cursor/
+*.iml
+
+# Misc
+.DS_Store
+*.log
+*.orig
+*.swp
+*~
+.tools-venv/
+.venv/
+.venv-*/
+
+# Vendor build scratch (scripts/build-flac.sh)
+.build/
+
+# Store marketing (local generated)
+/store/artwork/screenshots/
+/store/artwork/creative/
+
+# Local unit / UI tests
+*.xcresult/
+/test-results/
+/coverage/
+/tmp/

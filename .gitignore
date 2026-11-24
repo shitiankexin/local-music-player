@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+.cursor/
+*.log
+*~
+
+# Python / local tools
+.tools-venv/
+.venv/
+__pycache__/
+
+# Nested build artifacts
+**/.build/
+**/build/
+**/DerivedData/
+**/*.xcuserstate
+**/xcuserdata/
+**/*.ipa
+**/*.xcarchive
+**/store/release/
+**/ExportOptions.plist
+**/signing.properties
+**/signing/material/
+**/.swiftpm/
+**/Package.resolved
