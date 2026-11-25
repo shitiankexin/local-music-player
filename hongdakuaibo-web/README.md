@@ -1,4 +1,4 @@
-# hongda-player-web
+# hongdakuaibo-web
 
 **洪达快播** 官网：产品介绍、下载入口、隐私政策与用户协议。
 
@@ -7,7 +7,7 @@
 | 站点 | `public/` 静态站点（可直传任意静态托管） |
 | 品牌域名（规划） | `https://hongdakuaibo.com` |
 | 运营方 | 诗天可信 |
-| 关联 iOS | [hongda-player-ios-app](https://github.com/shitiankexin/local-music-player/tree/main/hongda-player-ios-app) |
+| 关联 iOS | [hongdakuaibo-ios-app](https://github.com/shitiankexin/local-music-player/tree/main/hongdakuaibo-ios-app) |
 | 许可 | [LICENSE](./LICENSE)（Apache-2.0） |
 
 ## 页面
@@ -33,7 +33,7 @@ python3 -m http.server 8080
 ## 目录
 
 ```text
-hongda-player-web/
+hongdakuaibo-web/
 ├── public/
 │   ├── index.html
 │   ├── download.html
