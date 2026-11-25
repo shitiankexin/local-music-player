@@ -1,6 +1,6 @@
 # local-music-player
 
-**洪达快播** 单体仓库（子项目结构，对齐 `5min` 组织方式）。
+**洪达快播** 独立产品仓库（含官网与 iOS 客户端）。
 
 | 子项目 | 说明 |
 |--------|------|
@@ -10,7 +10,7 @@
 | 项 | 值 |
 |------|------|
 | 显示名 | 洪达快播 |
-| Bundle ID | `com.shitiankexin.hongdakuaibo` |
+| Bundle ID | `chat.5min.hongdakuaibo.app` |
 | 规划域名 | `https://hongdakuaibo.com` |
 | GitHub | https://github.com/shitiankexin/local-music-player |
 

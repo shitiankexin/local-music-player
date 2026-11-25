@@ -1,12 +1,12 @@
 # hongda-player-ios-app
 
-**洪达快播** — iOS 本地 FLAC + LRC 音乐播放器。运营方：诗天可信。
+**洪达快播** — iOS 本地 FLAC + LRC 音乐播放器。独立产品；运营方：诗天可信。
 
-> **位置**：本工程位于单体仓库 [`shitiankexin/local-music-player`](https://github.com/shitiankexin/local-music-player) 的 `hongda-player-ios-app/` 子目录。官网见同仓库 `hongda-player-web/`。
+> **位置**：本工程位于仓库 [`shitiankexin/local-music-player`](https://github.com/shitiankexin/local-music-player) 的 `hongda-player-ios-app/` 子目录。官网见同仓库 `hongda-player-web/`。
 
 | 项 | 值 |
 |------|------|
-| Bundle ID | `com.shitiankexin.hongdakuaibo` |
+| Bundle ID | `chat.5min.hongdakuaibo.app` |
 | 显示名 | 洪达快播 |
 | 版本 | `1.0.0`（Build `1`）— 见 `HongdaPlayer/Info.plist` 与 `MARKETING_VERSION` |
 | 技术 | SwiftUI · Observation · AVAudioEngine · libFLAC · MediaPlayer · CryptoKit |

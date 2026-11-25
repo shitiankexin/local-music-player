@@ -404,7 +404,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shitiankexin.hongdakuaibo;
+				PRODUCT_BUNDLE_IDENTIFIER = chat.5min.hongdakuaibo.app;
 				PRODUCT_NAME = HongdaPlayer;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = HongdaPlayer/Support/BridgingHeader.h;
@@ -484,7 +484,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shitiankexin.hongdakuaibo.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = chat.5min.hongdakuaibo.app.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HongdaPlayer.app/HongdaPlayer";
@@ -569,7 +569,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shitiankexin.hongdakuaibo.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = chat.5min.hongdakuaibo.app.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HongdaPlayer.app/HongdaPlayer";
@@ -606,7 +606,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shitiankexin.hongdakuaibo;
+				PRODUCT_BUNDLE_IDENTIFIER = chat.5min.hongdakuaibo.app;
 				PRODUCT_NAME = HongdaPlayer;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = HongdaPlayer/Support/BridgingHeader.h;
