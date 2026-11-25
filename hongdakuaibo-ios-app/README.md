@@ -8,11 +8,11 @@
 |------|------|
 | Bundle ID | `com.shitiankexin.hongdakuaibo` |
 | 显示名 | 洪达快播 |
-| 版本 | `1.0.0`（Build `1`）— 见 `HongdaPlayer/Info.plist` 与 `MARKETING_VERSION` |
+| 版本 | `1.0.0`（Build `1`）— 见 `hongdakuaibo/Info.plist` 与 `MARKETING_VERSION` |
 | 技术 | SwiftUI · Observation · AVAudioEngine · libFLAC · MediaPlayer · CryptoKit |
 | 最低系统 | **iOS 18** |
 | 设备 | iPhone / iPad |
-| 工程 | `HongdaPlayer.xcodeproj`（`project.yml` + XcodeGen） |
+| 工程 | `hongdakuaibo.xcodeproj`（`project.yml` + XcodeGen） |
 | 许可 | [LICENSE](./LICENSE)（Apache-2.0）；libFLAC 另见 Xiph BSD 风格许可 |
 
 ## 功能
@@ -24,15 +24,15 @@
 - 文件管理：文件夹导入、增量扫描、SHA-256 去重、批量歌词匹配、空间统计
 - 音效：可选 10 段 EQ + 混响（默认原音旁路）
 
-数据仅存本机：`Documents/Music` + `Application Support/HongdaPlayer`。
+数据仅存本机：`Documents/Music` + `Application Support/hongdakuaibo`。
 
 ---
 
 ## 架构（iOS 18+）
 
 ```text
-HongdaPlayer/
-├── HongdaPlayerApp.swift      # @State AppModel → environment
+hongdakuaibo/
+├── hongdakuaiboApp.swift      # @State AppModel → environment
 ├── Data/
 │   ├── AppModel.swift         # 拥有 MusicLibrary + PlayerStore
 │   └── AppPreferences.swift   # 类型化 UserDefaults / AppStorage 键
@@ -70,7 +70,7 @@ HongdaPlayer/
 brew install cmake ninja xcodegen
 bash scripts/build-flac.sh
 xcodegen generate
-open HongdaPlayer.xcodeproj
+open hongdakuaibo.xcodeproj
 ```
 
 Signing → 选择 Team → `⌘R`。
@@ -92,7 +92,7 @@ cp ExportOptions.plist.example ExportOptions.plist   # 填 teamID
 ./scripts/release.sh                                 # → store/release/hongda-kuaibo-1.0.0.ipa
 ```
 
-版本两处保持一致：`HongdaPlayer/Info.plist` 与 Target `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION`。
+版本两处保持一致：`hongdakuaibo/Info.plist` 与 Target `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION`。
 
 ---
 
@@ -107,7 +107,7 @@ cp ExportOptions.plist.example ExportOptions.plist   # 填 teamID
 
 ## Git
 
-**提交**：源码、`project.yml`、`HongdaPlayer.xcodeproj`、Assets、`scripts/`、签名示例、`LICENSE`、文档
+**提交**：源码、`project.yml`、`hongdakuaibo.xcodeproj`、Assets、`scripts/`、签名示例、`LICENSE`、文档
 
 **勿提交**：`ExportOptions.plist`、`signing.properties`、`signing/material/`、`build/`、`.build/`、`store/release/`、`xcuserdata/`（见 `.gitignore`）
 

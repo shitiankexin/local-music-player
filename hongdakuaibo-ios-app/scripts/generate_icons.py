@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "HongdaPlayer" / "Assets.xcassets"
+ASSETS = ROOT / "hongdakuaibo" / "Assets.xcassets"
 APPICON = ASSETS / "AppIcon.appiconset"
 LOGO_SET = ASSETS / "Logo.imageset"
 ACCENT = ASSETS / "AccentColor.colorset"
@@ -309,7 +309,7 @@ python3 scripts/generate_icons.py
 
 | 文件 | 用途 |
 |------|------|
-| `HongdaPlayer/Assets.xcassets/AppIcon.appiconset/AppIcon.png` | 默认外观 1024×1024（无透明） |
+| `hongdakuaibo/Assets.xcassets/AppIcon.appiconset/AppIcon.png` | 默认外观 1024×1024（无透明） |
 | `AppIcon-Dark.png` | iOS 18 深色外观 |
 | `AppIcon-Tinted.png` | iOS 18 着色外观（模板） |
 | `Logo.imageset/logo.png` | 应用内字标 |

@@ -17,9 +17,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "671AC7FD82BDD8F8083FB3D5"
-               BuildableName = "HongdaPlayer.app"
-               BlueprintName = "HongdaPlayer"
-               ReferencedContainer = "container:HongdaPlayer.xcodeproj">
+               BuildableName = "hongdakuaibo.app"
+               BlueprintName = "hongdakuaibo"
+               ReferencedContainer = "container:hongdakuaibo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,9 +31,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "45EC5E8F01CBB1BED7DE4D12"
-               BuildableName = "HongdaPlayerTests.xctest"
-               BlueprintName = "HongdaPlayerTests"
-               ReferencedContainer = "container:HongdaPlayer.xcodeproj">
+               BuildableName = "hongdakuaiboTests.xctest"
+               BlueprintName = "hongdakuaiboTests"
+               ReferencedContainer = "container:hongdakuaibo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,9 +48,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "671AC7FD82BDD8F8083FB3D5"
-            BuildableName = "HongdaPlayer.app"
-            BlueprintName = "HongdaPlayer"
-            ReferencedContainer = "container:HongdaPlayer.xcodeproj">
+            BuildableName = "hongdakuaibo.app"
+            BlueprintName = "hongdakuaibo"
+            ReferencedContainer = "container:hongdakuaibo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -60,9 +60,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "45EC5E8F01CBB1BED7DE4D12"
-               BuildableName = "HongdaPlayerTests.xctest"
-               BlueprintName = "HongdaPlayerTests"
-               ReferencedContainer = "container:HongdaPlayer.xcodeproj">
+               BuildableName = "hongdakuaiboTests.xctest"
+               BlueprintName = "hongdakuaiboTests"
+               ReferencedContainer = "container:hongdakuaibo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "671AC7FD82BDD8F8083FB3D5"
-            BuildableName = "HongdaPlayer.app"
-            BlueprintName = "HongdaPlayer"
-            ReferencedContainer = "container:HongdaPlayer.xcodeproj">
+            BuildableName = "hongdakuaibo.app"
+            BlueprintName = "hongdakuaibo"
+            ReferencedContainer = "container:hongdakuaibo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -103,9 +103,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "671AC7FD82BDD8F8083FB3D5"
-            BuildableName = "HongdaPlayer.app"
-            BlueprintName = "HongdaPlayer"
-            ReferencedContainer = "container:HongdaPlayer.xcodeproj">
+            BuildableName = "hongdakuaibo.app"
+            BlueprintName = "hongdakuaibo"
+            ReferencedContainer = "container:hongdakuaibo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

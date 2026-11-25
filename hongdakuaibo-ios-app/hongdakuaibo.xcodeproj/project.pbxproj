@@ -20,7 +20,7 @@
 		47D7B4642552A1C7CA7EF4BB /* LibraryMaintenanceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839BC28F1EA1974DE699261 /* LibraryMaintenanceWorker.swift */; };
 		4CCC991BFFBD0CA9857ABC39 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E60225A0897E689493F1086 /* PlayerView.swift */; };
 		655B1A6B287328F67A387FEE /* LibraryImportWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097E7BEFBC936C3F6F7DE304 /* LibraryImportWorker.swift */; };
-		6A8A362D3EF61CA98CDFE53B /* HongdaPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B958284F68EA03B2F6A0468 /* HongdaPlayerApp.swift */; };
+		6A8A362D3EF61CA98CDFE53B /* hongdakuaiboApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B958284F68EA03B2F6A0468 /* hongdakuaiboApp.swift */; };
 		747564CCB84EFB5C208BBE79 /* FLACAudioEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CE64C197A18D752A4F437 /* FLACAudioEngine.swift */; };
 		8BF9C90462136430DCA59C0B /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546BA73271C8522E975123C9 /* CoverView.swift */; };
 		907FA178F881537F2EC5BCD7 /* AlbumsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A70C6541B711CD03A84BA8 /* AlbumsView.swift */; };
@@ -44,13 +44,13 @@
 			containerPortal = 22DCBB9B796D59A76B77AA57 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 671AC7FD82BDD8F8083FB3D5;
-			remoteInfo = HongdaPlayer;
+			remoteInfo = hongdakuaibo;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		097E7BEFBC936C3F6F7DE304 /* LibraryImportWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryImportWorker.swift; sourceTree = "<group>"; };
-		2456F6B882423F1DEE8AB49A /* HongdaPlayer.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HongdaPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2456F6B882423F1DEE8AB49A /* hongdakuaibo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = hongdakuaibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2844474D0F91114EA91977EA /* FileDigest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDigest.swift; sourceTree = "<group>"; };
 		31CA4B2611C02BE5D764BDF0 /* LRCParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRCParserTests.swift; sourceTree = "<group>"; };
 		390695A9EE6CBBB1D9CBDC91 /* FLACBridge.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = FLACBridge.c; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		6417EA1D48F810D6F42FADEC /* LibraryIndexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryIndexer.swift; sourceTree = "<group>"; };
 		649854BA89149EE757BB5383 /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
 		891E5E6A9ED262652D4B9686 /* MusicLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLibrary.swift; sourceTree = "<group>"; };
-		9B958284F68EA03B2F6A0468 /* HongdaPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HongdaPlayerApp.swift; sourceTree = "<group>"; };
+		9B958284F68EA03B2F6A0468 /* hongdakuaiboApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hongdakuaiboApp.swift; sourceTree = "<group>"; };
 		9CB56A980C45C4898A79704C /* PlayerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStore.swift; sourceTree = "<group>"; };
 		9E60225A0897E689493F1086 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		9E713F86D3C000182A9045D0 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		C7A70C6541B711CD03A84BA8 /* AlbumsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsView.swift; sourceTree = "<group>"; };
 		CA13E5F01D79C0CBC022A56D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D18746C015B042FDF444A7F5 /* LibraryManagementModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManagementModels.swift; sourceTree = "<group>"; };
-		D224C418C71348A1B6FECC99 /* HongdaPlayerTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HongdaPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D224C418C71348A1B6FECC99 /* hongdakuaiboTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = hongdakuaiboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D429CA5A41D13D79070C3308 /* LibraryManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManagementTests.swift; sourceTree = "<group>"; };
 		D61A01ACAF25C4DF8278D048 /* LibraryManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManagerView.swift; sourceTree = "<group>"; };
 		DE39FDF75C174AC2BA7F7616 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
@@ -94,11 +94,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04A510E364A6A6723F9A60D7 /* HongdaPlayer */ = {
+		04A510E364A6A6723F9A60D7 /* hongdakuaibo */ = {
 			isa = PBXGroup;
 			children = (
 				5F9DFC2040C7ACBEE9A39EB1 /* Assets.xcassets */,
-				9B958284F68EA03B2F6A0468 /* HongdaPlayerApp.swift */,
+				9B958284F68EA03B2F6A0468 /* hongdakuaiboApp.swift */,
 				DF9EE651BE996EAAFA1740CE /* Audio */,
 				0F77F99256BA0C6104102678 /* Data */,
 				B97A936CA846187C1717292C /* Features */,
@@ -106,7 +106,7 @@
 				1D42AA75BA16ABAD4BF3BB42 /* Services */,
 				80E1BC1A2F78752EA83A41ED /* Support */,
 			);
-			path = HongdaPlayer;
+			path = hongdakuaibo;
 			sourceTree = "<group>";
 		};
 		0F77F99256BA0C6104102678 /* Data */ = {
@@ -171,7 +171,7 @@
 		494DE0AEAFDCFEE29029AAD2 = {
 			isa = PBXGroup;
 			children = (
-				04A510E364A6A6723F9A60D7 /* HongdaPlayer */,
+				04A510E364A6A6723F9A60D7 /* hongdakuaibo */,
 				CC31B07FA385AD4D71799BB6 /* Tests */,
 				1F16138F66DBB4F9C2AC7D51 /* Frameworks */,
 				4B21224DD8565E6395F8F5C6 /* Products */,
@@ -181,8 +181,8 @@
 		4B21224DD8565E6395F8F5C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2456F6B882423F1DEE8AB49A /* HongdaPlayer.app */,
-				D224C418C71348A1B6FECC99 /* HongdaPlayerTests.xctest */,
+				2456F6B882423F1DEE8AB49A /* hongdakuaibo.app */,
+				D224C418C71348A1B6FECC99 /* hongdakuaiboTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,9 +238,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		45EC5E8F01CBB1BED7DE4D12 /* HongdaPlayerTests */ = {
+		45EC5E8F01CBB1BED7DE4D12 /* hongdakuaiboTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB951996BBC479B4E095FBA6 /* Build configuration list for PBXNativeTarget "HongdaPlayerTests" */;
+			buildConfigurationList = EB951996BBC479B4E095FBA6 /* Build configuration list for PBXNativeTarget "hongdakuaiboTests" */;
 			buildPhases = (
 				A9F3DF79380844AA09955B1F /* Sources */,
 			);
@@ -249,16 +249,16 @@
 			dependencies = (
 				0714C8EEE44A5B33EBD0B168 /* PBXTargetDependency */,
 			);
-			name = HongdaPlayerTests;
+			name = hongdakuaiboTests;
 			packageProductDependencies = (
 			);
-			productName = HongdaPlayerTests;
-			productReference = D224C418C71348A1B6FECC99 /* HongdaPlayerTests.xctest */;
+			productName = hongdakuaiboTests;
+			productReference = D224C418C71348A1B6FECC99 /* hongdakuaiboTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		671AC7FD82BDD8F8083FB3D5 /* HongdaPlayer */ = {
+		671AC7FD82BDD8F8083FB3D5 /* hongdakuaibo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7DE950F980393CDE093CB6F7 /* Build configuration list for PBXNativeTarget "HongdaPlayer" */;
+			buildConfigurationList = 7DE950F980393CDE093CB6F7 /* Build configuration list for PBXNativeTarget "hongdakuaibo" */;
 			buildPhases = (
 				84B4B58B75AA448096C6BA0A /* Sources */,
 				9BD7FD0E487A1787F61E7077 /* Resources */,
@@ -268,11 +268,11 @@
 			);
 			dependencies = (
 			);
-			name = HongdaPlayer;
+			name = hongdakuaibo;
 			packageProductDependencies = (
 			);
-			productName = HongdaPlayer;
-			productReference = 2456F6B882423F1DEE8AB49A /* HongdaPlayer.app */;
+			productName = hongdakuaibo;
+			productReference = 2456F6B882423F1DEE8AB49A /* hongdakuaibo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -290,7 +290,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D72E3545ED76C726D1069E10 /* Build configuration list for PBXProject "HongdaPlayer" */;
+			buildConfigurationList = D72E3545ED76C726D1069E10 /* Build configuration list for PBXProject "hongdakuaibo" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -304,8 +304,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				671AC7FD82BDD8F8083FB3D5 /* HongdaPlayer */,
-				45EC5E8F01CBB1BED7DE4D12 /* HongdaPlayerTests */,
+				671AC7FD82BDD8F8083FB3D5 /* hongdakuaibo */,
+				45EC5E8F01CBB1BED7DE4D12 /* hongdakuaiboTests */,
 			);
 		};
 /* End PBXProject section */
@@ -335,7 +335,7 @@
 				9ED622C701D06CB42DD6CFEB /* FLACBridge.c in Sources */,
 				06D3CDA9CFA4EC8BB7A87973 /* FLACDecoder.swift in Sources */,
 				E1FD258DC105BDDD169268A4 /* FileDigest.swift in Sources */,
-				6A8A362D3EF61CA98CDFE53B /* HongdaPlayerApp.swift in Sources */,
+				6A8A362D3EF61CA98CDFE53B /* hongdakuaiboApp.swift in Sources */,
 				3292D30ED3840B5FD55AA890 /* LRCParser.swift in Sources */,
 				15B34C530EDE102042609772 /* LibraryFileRules.swift in Sources */,
 				655B1A6B287328F67A387FEE /* LibraryImportWorker.swift in Sources */,
@@ -368,7 +368,7 @@
 /* Begin PBXTargetDependency section */
 		0714C8EEE44A5B33EBD0B168 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 671AC7FD82BDD8F8083FB3D5 /* HongdaPlayer */;
+			target = 671AC7FD82BDD8F8083FB3D5 /* hongdakuaibo */;
 			targetProxy = 83F4FA2A5ECF2432F034A8BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -390,9 +390,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Vendor/Headers",
-					"$(PROJECT_DIR)/HongdaPlayer/Audio",
+					"$(PROJECT_DIR)/hongdakuaibo/Audio",
 				);
-				INFOPLIST_FILE = HongdaPlayer/Info.plist;
+				INFOPLIST_FILE = hongdakuaibo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "洪达快播";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -405,9 +405,9 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shitiankexin.hongdakuaibo;
-				PRODUCT_NAME = HongdaPlayer;
+				PRODUCT_NAME = hongdakuaibo;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = HongdaPlayer/Support/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = hongdakuaibo/Support/BridgingHeader.h;
 				SWIFT_STRICT_CONCURRENCY = targeted;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -487,7 +487,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shitiankexin.hongdakuaibo.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HongdaPlayer.app/HongdaPlayer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hongdakuaibo.app/hongdakuaibo";
 			};
 			name = Debug;
 		};
@@ -572,7 +572,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shitiankexin.hongdakuaibo.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HongdaPlayer.app/HongdaPlayer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hongdakuaibo.app/hongdakuaibo";
 			};
 			name = Release;
 		};
@@ -592,9 +592,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Vendor/Headers",
-					"$(PROJECT_DIR)/HongdaPlayer/Audio",
+					"$(PROJECT_DIR)/hongdakuaibo/Audio",
 				);
-				INFOPLIST_FILE = HongdaPlayer/Info.plist;
+				INFOPLIST_FILE = hongdakuaibo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "洪达快播";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -607,9 +607,9 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shitiankexin.hongdakuaibo;
-				PRODUCT_NAME = HongdaPlayer;
+				PRODUCT_NAME = hongdakuaibo;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = HongdaPlayer/Support/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = hongdakuaibo/Support/BridgingHeader.h;
 				SWIFT_STRICT_CONCURRENCY = targeted;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -618,7 +618,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7DE950F980393CDE093CB6F7 /* Build configuration list for PBXNativeTarget "HongdaPlayer" */ = {
+		7DE950F980393CDE093CB6F7 /* Build configuration list for PBXNativeTarget "hongdakuaibo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3D64931F199A2D6DCE0422E2 /* Debug */,
@@ -627,7 +627,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		D72E3545ED76C726D1069E10 /* Build configuration list for PBXProject "HongdaPlayer" */ = {
+		D72E3545ED76C726D1069E10 /* Build configuration list for PBXProject "hongdakuaibo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB1A0DB470317E5223F23712 /* Debug */,
@@ -636,7 +636,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		EB951996BBC479B4E095FBA6 /* Build configuration list for PBXNativeTarget "HongdaPlayerTests" */ = {
+		EB951996BBC479B4E095FBA6 /* Build configuration list for PBXNativeTarget "hongdakuaiboTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C59CAD30303E862496614BD4 /* Debug */,

@@ -23,7 +23,7 @@ enum LibraryImportWorker {
         }
         defer { acquired.forEach { $0.stopAccessingSecurityScopedResource() } }
 
-        let tempRoot = fm.temporaryDirectory.appendingPathComponent("HongdaPlayerImport-\(UUID().uuidString)", isDirectory: true)
+        let tempRoot = fm.temporaryDirectory.appendingPathComponent("hongdakuaiboImport-\(UUID().uuidString)", isDirectory: true)
         do { try fm.createDirectory(at: tempRoot, withIntermediateDirectories: true) }
         catch {
             report.failed += 1

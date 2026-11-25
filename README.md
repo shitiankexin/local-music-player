@@ -29,5 +29,5 @@ python3 -m http.server 8080
 cd hongdakuaibo-ios-app
 bash scripts/build-flac.sh   # 首次
 xcodegen generate
-open HongdaPlayer.xcodeproj
+open hongdakuaibo.xcodeproj
 ```

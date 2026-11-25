@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct HongdaPlayerApp: App {
+struct hongdakuaiboApp: App {
     @State private var model = AppModel()
 
     var body: some Scene {

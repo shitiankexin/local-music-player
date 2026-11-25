@@ -1,5 +1,5 @@
 import XCTest
-@testable import HongdaPlayer
+@testable import hongdakuaibo
 
 final class LRCParserTests: XCTestCase {
     func testMultipleTimeCodesAndOffset() {

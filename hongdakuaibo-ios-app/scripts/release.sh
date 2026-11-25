@@ -3,10 +3,10 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-SCHEME="${SCHEME:-HongdaPlayer}"
-PROJECT="HongdaPlayer.xcodeproj"
+SCHEME="${SCHEME:-hongdakuaibo}"
+PROJECT="hongdakuaibo.xcodeproj"
 CONFIG="Release"
-ARCHIVE_PATH="build/HongdaPlayer.xcarchive"
+ARCHIVE_PATH="build/hongdakuaibo.xcarchive"
 EXPORT_DIR="build/export"
 OUT_DIR="store/release"
 
@@ -15,8 +15,8 @@ if ! command -v xcodebuild >/dev/null 2>&1; then
   exit 1
 fi
 
-VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' HongdaPlayer/Info.plist 2>/dev/null || true)"
-BUILD="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' HongdaPlayer/Info.plist 2>/dev/null || true)"
+VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' hongdakuaibo/Info.plist 2>/dev/null || true)"
+BUILD="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' hongdakuaibo/Info.plist 2>/dev/null || true)"
 VERSION="${VERSION:-1.0.0}"
 BUILD="${BUILD:-1}"
 echo "version=$VERSION ($BUILD)"

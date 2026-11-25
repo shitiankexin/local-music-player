@@ -35,7 +35,7 @@ final class MusicLibrary {
         documentsURL = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
         musicURL = documentsURL.appendingPathComponent("Music", isDirectory: true)
         supportURL = fm.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("HongdaPlayer", isDirectory: true)
+            .appendingPathComponent("hongdakuaibo", isDirectory: true)
         artworkURL = supportURL.appendingPathComponent("Covers", isDirectory: true)
         manualArtworkURL = artworkURL.appendingPathComponent("Manual", isDirectory: true)
         artworkCache.totalCostLimit = 32 * 1024 * 1024  // decoded pixels, not file bytes
