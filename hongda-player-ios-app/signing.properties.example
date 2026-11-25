@@ -6,7 +6,7 @@
 teamID=YOUR_TEAM_ID
 
 # Bundle ID (must match App Store Connect / Xcode)
-bundleId=chat.5min.hongdakuaibo.app
+bundleId=com.shitiankexin.hongdakuaibo
 
 # App Store Connect / App record name
 appName=洪达快播

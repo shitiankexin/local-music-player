@@ -10,7 +10,7 @@
  "origin": "https://hongdakuaibo.com",
  "operator": "诗天可信",
  "contactEmail": "support@heanbian.com",
- "iosBundleId": "chat.5min.hongdakuaibo.app",
+ "iosBundleId": "com.shitiankexin.hongdakuaibo",
  "iosRepo": "https://github.com/shitiankexin/local-music-player/tree/main/hongda-player-ios-app",
  "webRepo": "https://github.com/shitiankexin/local-music-player/tree/main/hongda-player-web",
  "appStoreUrl": "",

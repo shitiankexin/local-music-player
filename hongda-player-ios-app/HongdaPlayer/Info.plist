@@ -25,7 +25,7 @@
 			<string>Alternate</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>chat.5min.hongdakuaibo.app.lrc</string>
+				<string>com.shitiankexin.hongdakuaibo.lrc</string>
 			</array>
 		</dict>
 	</array>
@@ -102,7 +102,7 @@
 			<key>UTTypeDescription</key>
 			<string>Timed LRC Lyrics</string>
 			<key>UTTypeIdentifier</key>
-			<string>chat.5min.hongdakuaibo.app.lrc</string>
+			<string>com.shitiankexin.hongdakuaibo.lrc</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

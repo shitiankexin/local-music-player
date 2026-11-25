@@ -10,7 +10,7 @@
 | 项 | 值 |
 |------|------|
 | 显示名 | 洪达快播 |
-| Bundle ID | `chat.5min.hongdakuaibo.app` |
+| Bundle ID | `com.shitiankexin.hongdakuaibo` |
 | 规划域名 | `https://hongdakuaibo.com` |
 | GitHub | https://github.com/shitiankexin/local-music-player |
 

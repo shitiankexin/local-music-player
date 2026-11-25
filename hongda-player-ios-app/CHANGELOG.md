@@ -3,7 +3,7 @@
 ## 1.0.0 — 洪达快播
 
 ### Added
-- 产品定名 **洪达快播**（`chat.5min.hongdakuaibo.app`），版本自 `1.0.0` / Build `1` 起计。
+- 产品定名 **洪达快播**（`com.shitiankexin.hongdakuaibo`），版本自 `1.0.0` / Build `1` 起计。
 - iOS 18 工程脚手架：`.gitignore`、签名示例、`scripts/release.sh`、`store/`、`signing/`、Apache-2.0。
 - 品牌图标流水线：`scripts/generate_icons.py`（含 Dark / Tinted、商店尺寸）。
 - Feature 分区：`Features/Root|Library|Player`，`Data/AppModel` + `AppPreferences`。

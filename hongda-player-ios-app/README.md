@@ -6,7 +6,7 @@
 
 | 项 | 值 |
 |------|------|
-| Bundle ID | `chat.5min.hongdakuaibo.app` |
+| Bundle ID | `com.shitiankexin.hongdakuaibo` |
 | 显示名 | 洪达快播 |
 | 版本 | `1.0.0`（Build `1`）— 见 `HongdaPlayer/Info.plist` 与 `MARKETING_VERSION` |
 | 技术 | SwiftUI · Observation · AVAudioEngine · libFLAC · MediaPlayer · CryptoKit |
