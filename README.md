@@ -31,10 +31,3 @@ bash scripts/build-flac.sh   # 首次
 xcodegen generate
 open HongdaPlayer.xcodeproj
 ```
-<<<<<<< HEAD
-=======
-
-## 说明
-
-原独立仓库 [`heanbian/hongda-player-web`](https://github.com/heanbian/hongda-player-web)、[`heanbian/hongda-player-ios-app`](https://github.com/heanbian/hongda-player-ios-app) 已迁入本仓库，现为 `hongdakuaibo-web/`、`hongdakuaibo-ios-app/`；后续以本仓库为准。
->>>>>>> 5d3bc80 (1)
